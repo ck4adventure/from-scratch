@@ -1,24 +1,10 @@
-# README
+# From Scratch
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+As a hobbyist baker and coder, I want to have my own dedicated website to store my favorite recipes and get to them easily. As a baker, I want to be able to search my recipes by keyword, and filter them by included or excluded ingredients, category, etc. As a coder, I want to eventually be able to analyze my recipes by their ingredients and find possible duplicates by ingredient combination and quantity variance.
 
-Things you may want to cover:
+### v0.1
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Recipes
+Ingredients (self joins on Recipes)
+Citation (joins Recipe and Source with addtl info like page no. or link)
+Source
