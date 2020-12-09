@@ -16,4 +16,5 @@
 #  index_ingredients_on_recipe_id  (recipe_id)
 #
 class Ingredient < ApplicationRecord
+  validates :recipe_id, :food_id, presence: true
 end

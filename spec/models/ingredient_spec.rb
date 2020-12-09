@@ -18,5 +18,23 @@
 require 'rails_helper'
 
 RSpec.describe Ingredient, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'db and model properties' do
+    describe 'it should have db columns for recipe_id, food_id, qty and measure' do
+      it { should have_db_column(:recipe_id) }
+      it { should have_db_column(:food_id) }
+      it { should have_db_column(:qty) }
+      it { should have_db_column(:measure) }
+    end
+
+    describe 'it should have indexes for: recipe_id and item_id' do
+      it { should have_db_index(:recipe_id) }
+      it { should have_db_index(:food_id) }
+    end
+  end
+
+  describe 'model validations' do 
+      # subject { build(:ingredient) }
+      it { should validate_presence_of(:recipe_id) }
+      it { should validate_presence_of(:food_id) }
+  end
 end
