@@ -16,4 +16,15 @@
 #
 class Recipe < ApplicationRecord
   validates :title, presence: true
+
+  has_many :ingredients, 
+    inverse_of: :recipe, 
+    dependent: :destroy
+  
+  accepts_nested_attributes_for :ingredients
+  
+  has_many :used_in,
+    class_name: :Ingredient,
+    foreign_key: :item_id 
+
 end

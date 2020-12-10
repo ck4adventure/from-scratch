@@ -7,14 +7,21 @@
 #  qty        :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  food_id    :integer          not null
+#  item_id    :integer          not null
 #  recipe_id  :integer          not null
 #
 # Indexes
 #
-#  index_ingredients_on_food_id    (food_id)
+#  index_ingredients_on_item_id    (item_id)
 #  index_ingredients_on_recipe_id  (recipe_id)
 #
 class Ingredient < ApplicationRecord
-  validates :recipe_id, :food_id, presence: true
+  validates :recipe_id, :item_id, presence: true
+  belongs_to :recipe, inverse_of: :ingredients
+  
+  belongs_to :item,
+    class_name: :Recipe,
+    foreign_key: :item_id 
+
+
 end

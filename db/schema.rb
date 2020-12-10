@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 2020_12_09_214618) do
 
   create_table "ingredients", force: :cascade do |t|
     t.integer "recipe_id", null: false
-    t.integer "food_id", null: false
+    t.integer "item_id", null: false
     t.string "qty"
     t.string "measure"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["food_id"], name: "index_ingredients_on_food_id"
+    t.index ["item_id"], name: "index_ingredients_on_item_id"
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
