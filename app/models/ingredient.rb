@@ -16,7 +16,10 @@
 #  index_ingredients_on_recipe_id  (recipe_id)
 #
 class Ingredient < ApplicationRecord
-  validates :recipe_id, :item_id, presence: true
+  # not validating presence of recipe_id on model
+  # seems to create error on nested attributes
+  validates :item_id, presence: true
+  
   belongs_to :recipe, inverse_of: :ingredients
   
   belongs_to :item,

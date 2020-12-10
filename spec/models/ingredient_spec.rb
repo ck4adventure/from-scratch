@@ -33,8 +33,8 @@ RSpec.describe Ingredient, type: :model do
   end
 
   describe 'model validations' do 
-      # subject { build(:ingredient) }
-      it { should validate_presence_of(:recipe_id) }
+      # it appears one can't validate presence of recipe_id on nested attributes transactions
+      # it { should validate_presence_of(:recipe_id) }
       it { should validate_presence_of(:item_id) }
   end
 
