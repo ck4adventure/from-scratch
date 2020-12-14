@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_09_214618) do
+ActiveRecord::Schema.define(version: 2020_12_14_223644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "citations", force: :cascade do |t|
+    t.integer "recipe_id", null: false
+    t.integer "source_id", null: false
+    t.string "page"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id", "source_id"], name: "index_citations_on_recipe_id_and_source_id", unique: true
+    t.index ["recipe_id"], name: "index_citations_on_recipe_id"
+    t.index ["source_id"], name: "index_citations_on_source_id"
+  end
 
   create_table "ingredients", force: :cascade do |t|
     t.integer "recipe_id", null: false
@@ -34,6 +45,16 @@ ActiveRecord::Schema.define(version: 2020_12_09_214618) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["title"], name: "index_recipes_on_title"
+  end
+
+  create_table "sources", force: :cascade do |t|
+    t.string "author", null: false
+    t.string "website"
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author"], name: "index_sources_on_author"
+    t.index ["title"], name: "index_sources_on_title"
   end
 
 end

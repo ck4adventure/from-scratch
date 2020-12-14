@@ -27,4 +27,8 @@ class Recipe < ApplicationRecord
     class_name: :Ingredient,
     foreign_key: :item_id 
 
+  has_one :citation
+
+  has_one :source, through: :citation
+
 end

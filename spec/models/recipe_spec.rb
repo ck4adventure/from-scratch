@@ -38,5 +38,7 @@ RSpec.describe Recipe, type: :model do
     it { should have_many(:ingredients) }
     it { should accept_nested_attributes_for(:ingredients) }
     it { should have_many(:used_in) }
+    it { should have_one(:citation) }
+    it { should have_one(:source).through(:citation) }
   end
 end
