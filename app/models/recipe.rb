@@ -21,13 +21,14 @@ class Recipe < ApplicationRecord
     inverse_of: :recipe, 
     dependent: :destroy
   
-  accepts_nested_attributes_for :ingredients
+  accepts_nested_attributes_for :ingredients, allow_destroy: :true
   
   has_many :used_in,
     class_name: :Ingredient,
     foreign_key: :item_id 
 
-  has_one :citation
+  has_one :citation, dependent: :destroy
+  accepts_nested_attributes_for :citation, allow_destroy: :true
 
   has_one :source, through: :citation
 

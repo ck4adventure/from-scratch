@@ -6,6 +6,32 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+ge1 = Source.find_or_create_by(title: "Good Eats, vol. 1")
+if ge1.new_record?
+  ge1.author = "Alton Brown"
+  ge1.save!
+end
+
+ge2 = Source.find_or_create_by(title: "Good Eats, vol. 2")
+if ge2.new_record?
+  ge2.author = "Alton Brown"
+  ge2.save!
+end
+
+ge3 = Source.find_or_create_by(title: "Good Eats, vol. 3")
+if ge3.new_record?
+  ge3.author = "Alton Brown"
+  ge3.save!
+end
+
+mbbb = Source.find_or_create_by(title: "Mary Berry's Baking Bible")
+if mbbb.new_record?
+  mbbb.author = "Mary Berry"
+  mbbb.save!
+end
+
+
 Recipe.find_or_create_by(title: "flour, all-purpose", base_item: true)
 Recipe.find_or_create_by(title: "flour, bread", base_item: true)
 Recipe.find_or_create_by(title: "sugar, white (caster)", base_item: true)
@@ -28,7 +54,7 @@ Recipe.find_or_create_by(title: "mustard seeds, ground", base_item: true)
 
 wc = Recipe.find_by(title: "Whipped Cream")
 if wc.nil?
-  Recipe.create!(
+  r = Recipe.create!(
     title: "Whipped Cream",
     description: "Fluffy, creamy, goodness",
     ingredients_attributes: [
@@ -37,4 +63,7 @@ if wc.nil?
       ],
     steps: "Beat the cream on high until it starts to stiffen. Add sugar a teaspoon at a time and continue beating until stiff peaks form, about 5 to 7 minutes."
   )
-end  
+  Citation.create!(recipe_id: r.id, source_id: mbbb.id, page: "666")
+end
+
+
