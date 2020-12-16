@@ -8,3 +8,4 @@ As a hobbyist baker and coder, I want to have my own dedicated website to store 
 - Ingredients (self joins on Recipes)
 - Citation (joins Recipe and Source with addtl info like page no. or link)
 - Source
+- Basic Graphql for practice, will use again once I decide on what inputs happen first

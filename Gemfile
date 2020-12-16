@@ -50,6 +50,7 @@ group :development do
   # `annotate --models` for schema luv
   gem 'annotate'
   gem 'graphiql-rails'
+  gem 'nokogiri'
 end
 
 group :test do
