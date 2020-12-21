@@ -1,12 +1,13 @@
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
-#                          recipe_index GET    /recipe(.:format)                                                                        recipe#index
-#                                       POST   /recipe(.:format)                                                                        recipe#create
-#                                recipe GET    /recipe/:id(.:format)                                                                    recipe#show
-#                                       PATCH  /recipe/:id(.:format)                                                                    recipe#update
-#                                       PUT    /recipe/:id(.:format)                                                                    recipe#update
-#                                       DELETE /recipe/:id(.:format)                                                                    recipe#destroy
+#                    all_api_v1_recipes GET    /api/v1/recipes/all(.:format)                                                            api/v1/recipes#all
+#                        api_v1_recipes GET    /api/v1/recipes(.:format)                                                                api/v1/recipes#index
+#                                       POST   /api/v1/recipes(.:format)                                                                api/v1/recipes#create
+#                         api_v1_recipe GET    /api/v1/recipes/:id(.:format)                                                            api/v1/recipes#show
+#                                       PATCH  /api/v1/recipes/:id(.:format)                                                            api/v1/recipes#update
+#                                       PUT    /api/v1/recipes/:id(.:format)                                                            api/v1/recipes#update
+#                                       DELETE /api/v1/recipes/:id(.:format)                                                            api/v1/recipes#destroy
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create

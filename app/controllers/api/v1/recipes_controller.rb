@@ -50,6 +50,11 @@ class Api::V1::RecipesController < ApplicationController
           :item_id,
           :qty,
           :measure
+        ],
+        citation_attributes: [
+          :recipe_id,
+          :source_id,
+          :page
         ] 
       )
   end

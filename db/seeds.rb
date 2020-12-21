@@ -34,14 +34,14 @@ end
 
 Recipe.find_or_create_by(title: "flour, all-purpose", base_item: true)
 Recipe.find_or_create_by(title: "flour, bread", base_item: true)
-Recipe.find_or_create_by(title: "sugar, white (caster)", base_item: true)
+sugar = Recipe.find_or_create_by(title: "sugar, white (caster)", base_item: true)
 Recipe.find_or_create_by(title: "brown sugar", base_item: true)
 Recipe.find_or_create_by(title: "salted butter", base_item: true)
 Recipe.find_or_create_by(title: "butter, unsalted", base_item: true)
 Recipe.find_or_create_by(title: "milk, whole", base_item: true)
-Recipe.find_or_create_by(title: "heavy cream", base_item: true)
+cream = Recipe.find_or_create_by(title: "heavy cream", base_item: true)
 Recipe.find_or_create_by(title: "egg", base_item: true)
-Recipe.find_or_create_by(title: "egg white", base_item: true)
+eggwhite = Recipe.find_or_create_by(title: "egg white", base_item: true)
 Recipe.find_or_create_by(title: "egg yolk", base_item: true)
 Recipe.find_or_create_by(title: "cumin seeds, whole", base_item: true)
 Recipe.find_or_create_by(title: "cumin seeds, ground", base_item: true)
@@ -51,6 +51,7 @@ Recipe.find_or_create_by(title: "cardamom pods, whole", base_item: true)
 Recipe.find_or_create_by(title: "cayenne chili, ground", base_item: true)
 Recipe.find_or_create_by(title: "turmeric, ground", base_item: true)
 Recipe.find_or_create_by(title: "mustard seeds, ground", base_item: true)
+vanilla = Recipe.find_or_create_by(title: "vanilla extract", base_item: true)
 
 wc = Recipe.find_by(title: "Whipped Cream")
 if wc.nil?
@@ -66,4 +67,15 @@ if wc.nil?
   Citation.create!(recipe_id: r.id, source_id: mbbb.id, page: "666")
 end
 
-
+meringues = Recipe.find_by(title: "Basic White Meringues")
+if meringues.nil?
+  m = Recipe.create!(
+    title: "Basic White Meringue",
+    ingredients_attributes: [
+      { item_id: eggwhite.id, qty: "3", measure: "large" },
+      { item_id: sugar.id, qty: "175", measure: "g" },
+    ],
+    steps: "1. Pre-heat the oven to 120C or about 220F. Line two trays with baking parchment 2. Put the egg whites in a large bowl and whish until soft peaks form. 3. Add the sugar slowly and beat until stiff peaks form. 5. Pipe onto lined trays. 6. Bake for 30 mins then turn off oven and let dry out anouther hour.",
+    citation_attributes: { source_id: 4, page: "355"}
+  )
+end

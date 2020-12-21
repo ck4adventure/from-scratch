@@ -16,6 +16,9 @@
 #
 class Recipe < ApplicationRecord
   validates :title, presence: true
+  
+  has_one :citation, dependent: :destroy
+  accepts_nested_attributes_for :citation, allow_destroy: :true
 
   has_many :ingredients, 
     inverse_of: :recipe, 
@@ -27,8 +30,7 @@ class Recipe < ApplicationRecord
     class_name: :Ingredient,
     foreign_key: :item_id 
 
-  has_one :citation, dependent: :destroy
-  accepts_nested_attributes_for :citation, allow_destroy: :true
+
 
   has_one :source, through: :citation
 

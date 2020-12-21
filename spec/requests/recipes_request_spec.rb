@@ -28,7 +28,7 @@ RSpec.describe "Recipes API v1", type: :request do
     it 'returns the proper content type and template' do
       expect(response.content_type).to eq("application/json; charset=utf-8")
       expect(response).to have_http_status(:ok)
-      expect(response).to render_template(:all)
+      expect(response).to render_template(:index)
     end
   end
 

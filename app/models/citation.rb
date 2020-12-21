@@ -16,7 +16,6 @@
 #  index_citations_on_source_id                (source_id)
 #
 class Citation < ApplicationRecord
-  validates :recipe_id, :source_id, presence: true
 
   belongs_to :recipe
   belongs_to :source
