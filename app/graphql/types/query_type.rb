@@ -3,7 +3,7 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    field :fetch_recipes, resolver: Queries::FetchRecipes
+    field :fetch_recipes, resolver: Queries::FetchRecipes, description: "all non-base items"
     field :fetch_recipe, resolver: Queries::FetchRecipe
   end
 end

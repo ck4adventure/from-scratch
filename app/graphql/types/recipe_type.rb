@@ -1,5 +1,6 @@
 module Types
   class RecipeType < Types::BaseObject
+
     # model info made available
     field :id, ID, null: false
     field :title, String, null: false

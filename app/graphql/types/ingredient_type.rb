@@ -5,6 +5,7 @@ module Types
     field :item_id, Integer, null: false
     field :qty, String, null: true
     field :measure, String, null: true
+    # associations on the table
     field :recipe, Types::RecipeType, null: false
     field :item, Types::RecipeType, null: false
   end
