@@ -35,10 +35,10 @@ RSpec.describe Recipe, type: :model do
   end
 
   describe 'model associations' do
-    it { should have_many(:ingredients) }
+    it { should have_many(:ingredients).dependent(:destroy) }
     it { should accept_nested_attributes_for(:ingredients) }
     it { should have_many(:used_in) }
-    it { should have_one(:citation) }
+    it { should have_one(:citation).dependent(:destroy) }
     it { should have_one(:source).through(:citation) }
   end
 end

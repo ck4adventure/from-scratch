@@ -1,8 +1,13 @@
 
 class Api::V1::RecipesController < ApplicationController
   def index
+    @recipes = Recipe.where(base_item: false)
+    render :index
+  end
+
+  def all
     @recipes = Recipe.all
-    # render json: @recipes, status: :ok
+    render :index
   end
 
   def create
