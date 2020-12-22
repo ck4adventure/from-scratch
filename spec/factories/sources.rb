@@ -16,6 +16,7 @@
 #
 FactoryBot.define do
   factory :source do
-    
+    author { Faker::Movies::HarryPotter.character }
+    title { Faker::Movies::HarryPotter.spell }
   end
 end

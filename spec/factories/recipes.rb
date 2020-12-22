@@ -19,9 +19,12 @@ FactoryBot.define do
     title { Faker::Food.dish }
     description { Faker::Food.description }
     steps { Faker::ChuckNorris.fact }
+
+    trait :base_item do
+      base_item { true }
+    end
+
   end
 
-  trait :base_item do
-    base_item { true }
-  end
+
 end
