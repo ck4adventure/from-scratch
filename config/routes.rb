@@ -1,13 +1,14 @@
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
-#                    all_api_v1_recipes GET    /api/v1/recipes/all(.:format)                                                            api/v1/recipes#all
-#                        api_v1_recipes GET    /api/v1/recipes(.:format)                                                                api/v1/recipes#index
-#                                       POST   /api/v1/recipes(.:format)                                                                api/v1/recipes#create
-#                         api_v1_recipe GET    /api/v1/recipes/:id(.:format)                                                            api/v1/recipes#show
-#                                       PATCH  /api/v1/recipes/:id(.:format)                                                            api/v1/recipes#update
-#                                       PUT    /api/v1/recipes/:id(.:format)                                                            api/v1/recipes#update
-#                                       DELETE /api/v1/recipes/:id(.:format)                                                            api/v1/recipes#destroy
+#                    all_api_v1_recipes GET    /api/v1/recipes/all(.:format)                                                            api/v1/recipes#all {:format=>:json}
+#                        api_v1_recipes GET    /api/v1/recipes(.:format)                                                                api/v1/recipes#index {:format=>:json}
+#                                       POST   /api/v1/recipes(.:format)                                                                api/v1/recipes#create {:format=>:json}
+#                         api_v1_recipe GET    /api/v1/recipes/:id(.:format)                                                            api/v1/recipes#show {:format=>:json}
+#                                       PATCH  /api/v1/recipes/:id(.:format)                                                            api/v1/recipes#update {:format=>:json}
+#                                       PUT    /api/v1/recipes/:id(.:format)                                                            api/v1/recipes#update {:format=>:json}
+#                                       DELETE /api/v1/recipes/:id(.:format)                                                            api/v1/recipes#destroy {:format=>:json}
+#                                  root GET    /                                                                                        static_pages#root
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
@@ -29,7 +30,7 @@
 
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  namespace :api do
+  namespace :api, defaults: { format: :json} do
     namespace :v1 do
       resources :recipes do 
         collection do
@@ -38,4 +39,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  root to: 'static_pages#root'
 end
