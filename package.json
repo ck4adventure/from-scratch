@@ -1,0 +1,31 @@
+{
+  "name": "from_scratch",
+  "version": "1.0.0",
+  "description": "As a hobbyist baker and coder, I want to have my own dedicated website to store my favorite recipes and get to them easily. As a baker, I want to be able to search my recipes by keyword, and filter them by included or excluded ingredients, category, etc. As a coder, I want to eventually be able to analyze my recipes by their ingredients and find possible duplicates by ingredient combination and quantity variance.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ck4adventure/from-scratch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ck4adventure/from-scratch/issues"
+  },
+  "homepage": "https://github.com/ck4adventure/from-scratch#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.0",
+    "react-dom": "^17.0.1",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1"
+  }
+}
